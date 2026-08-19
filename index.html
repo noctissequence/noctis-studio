@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071510" />
+    <meta name="description" content="NOCTIS STUDIO — digital experiences for hospitality, cafe, and modern businesses." />
+    <title>NOCTIS STUDIO</title>
+    <style>
+      :root { color-scheme: dark; }
+      * { box-sizing: border-box; }
+      html, body { width: 100%; min-height: 100%; margin: 0; background: #071510; }
+      body { overflow: hidden; font-family: Montserrat, Arial, sans-serif; }
+      .shell { position: fixed; inset: 0; background: #071510; }
+      iframe { width: 100%; height: 100%; border: 0; display: block; background: #071510; }
+      .loader { position: fixed; inset: 0; z-index: 2; display: grid; place-items: center; padding: 28px; background: #071510; color: #ecfdf7; transition: opacity .36s cubic-bezier(.23,1,.32,1), visibility .36s; }
+      .loader.is-loaded { opacity: 0; visibility: hidden; pointer-events: none; }
+      .brand { width: min(100%, 340px); text-align: left; }
+      .mark { width: 48px; height: 48px; display: grid; place-items: center; margin-bottom: 18px; border: 1px solid rgba(8,153,129,.55); color: #58e2ca; font-size: 22px; line-height: 1; }
+      .eyebrow { margin: 0 0 8px; color: #58e2ca; font-size: 10px; font-weight: 800; letter-spacing: .18em; }
+      h1 { margin: 0; color: #fff; font-size: clamp(24px, 6vw, 34px); line-height: 1; letter-spacing: .06em; }
+      p { margin: 12px 0 0; color: rgba(236,253,247,.7); font-family: Arial, sans-serif; font-size: 13px; line-height: 1.5; }
+      .fallback { margin-top: 22px; color: #fff; font-size: 12px; text-underline-offset: 4px; }
+      @media (prefers-reduced-motion: reduce) { .loader { transition: none; } }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <iframe
+        id="showcase"
+        title="NOCTIS STUDIO showcase"
+        src="https://hotelcafe-uisd7dui.manus.space"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="clipboard-read; clipboard-write"
+      ></iframe>
+    </main>
+    <section id="loader" class="loader" aria-live="polite">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">N</div>
+        <p class="eyebrow">DIGITAL EXPERIENCES</p>
+        <h1>NOCTIS STUDIO</h1>
+        <p>Menyiapkan showcase.</p>
+        <a class="fallback" href="https://hotelcafe-uisd7dui.manus.space">Buka showcase langsung</a>
+      </div>
+    </section>
+    <script>
+      const loader = document.getElementById('loader');
+      const frame = document.getElementById('showcase');
+      frame.addEventListener('load', () => loader.classList.add('is-loaded'), { once: true });
+      window.setTimeout(() => loader.classList.add('is-loaded'), 4200);
+    </script>
+  </body>
+</html>
